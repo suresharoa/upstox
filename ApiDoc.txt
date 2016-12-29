@@ -1,0 +1,204 @@
+addCustomer
+
+Request Body : { "customer_id":16,"email" : "suresharora16@gmail.com"}
+Response Body : {"status": "ok"}
+API Name : addCustomer
+API Type : POST
+
+
+getCustomerById/custome_id
+
+Response Body : {
+  "_id": "5863a3c751691c455902ae1b",
+  "customer_id": 6,
+  "email": "suresharora6@gmail.com",
+  "__v": 0,
+  "lastUpdated": "2016-12-28T11:36:39.210Z",
+  "joiningDate": "2016-12-28T11:36:39.210Z",
+  "isAmbassador": true,
+  "payback": 0,
+  "referral_id": -1
+}
+API Name : getCustomerById
+API Type : GET
+
+addReferral/parent_customer_id
+
+Request Body : { "customer_id":16,"email" : "suresharora16@gmail.com"}
+Response Body : {"status":"ok","parent_id":"6"}
+API Name : addReferral
+API Type : PUT
+
+
+fetchAllCustomersWithReferralCount
+
+Response Body : [
+  {
+    "_id": customer1_id,
+    "referCount": 10
+  },
+  {
+    "_id": customer2_id,
+    "referCount": 4
+  },
+  {
+    "_id": customer3_id,
+    "referCount": 1
+  }
+]
+API Name : fetchAllCustomersWithReferralCount
+API Type : GET
+
+addAmbassador
+
+Request Body : { "customer_id":16,"email" : "suresharora16@gmail.com"}
+Response Body : {"status": "ok"}
+API Name : addAmbassador
+API Type : POST
+
+
+convertCustomerToAmbassador/customer_id
+
+Response Body : {"status": "ok"}
+API Name : convertCustomerToAmbassador
+API Type : PUT
+
+fetchAllChildren/customer_id
+
+Response Body : [
+  {
+    "_id": "5863a46751691c455902ae1e",
+    "customer_id": 11,
+    "email": "sureaor11@gmail.com",
+    "__v": 0,
+    "lastUpdated": "2016-12-28T11:39:19.448Z",
+    "joiningDate": "2016-12-28T11:39:19.448Z",
+    "isAmbassador": false,
+    "payback": 0,
+    "referral_id": 6
+  },
+  {
+    "_id": "5863a61551691c455902ae20",
+    "customer_id": 12,
+    "email": "sureaor12@gmail.com",
+    "__v": 0,
+    "lastUpdated": "2016-12-28T11:46:29.395Z",
+    "joiningDate": "2016-12-28T11:46:29.395Z",
+    "isAmbassador": false,
+    "payback": 0,
+    "referral_id": 6
+  },
+  {
+    "_id": "5863a65d51691c455902ae22",
+    "customer_id": 13,
+    "email": "sureaor13@gmail.com",
+    "__v": 0,
+    "lastUpdated": "2016-12-28T11:47:41.152Z",
+    "joiningDate": "2016-12-28T11:47:41.152Z",
+    "isAmbassador": false,
+    "payback": 0,
+    "referral_id": 6
+  },
+  {
+    "_id": "5863fd919cfd6165f4c16f04",
+    "customer_id": 17,
+    "email": "sureaor17@gmail.com",
+    "__v": 0,
+    "lastUpdated": "2016-12-28T17:59:45.266Z",
+    "joiningDate": "2016-12-28T17:59:45.265Z",
+    "isAmbassador": false,
+    "payback": 0,
+    "referral_id": 6
+  }
+]
+
+//List of next levet children
+
+API Name : fetchAllChildren
+API Type : GET
+
+
+fetchAllChild/ambassador_id
+
+Response Body : [
+  {
+    "_id": "5865043313584553b370ea59",
+    "customer_id": 30,
+    "email": "sureaor30@gmail.com",
+    "__v": 0,
+    "lastUpdated": "2016-12-29T12:40:19.833Z",
+    "joiningDate": "2016-12-29T12:40:19.833Z",
+    "isAmbassador": false,
+    "payback": 0,
+    "referral_id": 24
+  },
+  {
+    "_id": "5865044013584553b370ea5b",
+    "customer_id": 28,
+    "email": "sureaor28@gmail.com",
+    "__v": 0,
+    "lastUpdated": "2016-12-29T12:40:32.191Z",
+    "joiningDate": "2016-12-29T12:40:32.191Z",
+    "isAmbassador": false,
+    "payback": 0,
+    "referral_id": 24
+  },
+  {
+    "_id": "5865044813584553b370ea5d",
+    "customer_id": 29,
+    "email": "sureaor29@gmail.com",
+    "__v": 0,
+    "lastUpdated": "2016-12-29T12:40:40.697Z",
+    "joiningDate": "2016-12-29T12:40:40.697Z",
+    "isAmbassador": false,
+    "payback": 0,
+    "referral_id": 24
+  }
+]
+// List of all the children
+
+API Name : fetchAllChild
+API Type : GET
+
+
+fetchAllAmbassadorChildren/ambassador_id
+
+Response Body : [
+  {
+    "_id": "5865043313584553b370ea59",
+    "customer_id": 30,
+    "email": "sureaor30@gmail.com",
+    "__v": 0,
+    "lastUpdated": "2016-12-29T12:40:19.833Z",
+    "joiningDate": "2016-12-29T12:40:19.833Z",
+    "isAmbassador": false,
+    "payback": 0,
+    "referral_id": 24
+  },
+  {
+    "_id": "5865044013584553b370ea5b",
+    "customer_id": 28,
+    "email": "sureaor28@gmail.com",
+    "__v": 0,
+    "lastUpdated": "2016-12-29T12:40:32.191Z",
+    "joiningDate": "2016-12-29T12:40:32.191Z",
+    "isAmbassador": false,
+    "payback": 0,
+    "referral_id": 24
+  },
+  {
+    "_id": "5865044813584553b370ea5d",
+    "customer_id": 29,
+    "email": "sureaor29@gmail.com",
+    "__v": 0,
+    "lastUpdated": "2016-12-29T12:40:40.697Z",
+    "joiningDate": "2016-12-29T12:40:40.697Z",
+    "isAmbassador": false,
+    "payback": 0,
+    "referral_id": 24
+  }
+]
+// List of all the children ids if ambassador else []
+
+API Name : fetchAllAmbassadorChildren
+API Type : GET
