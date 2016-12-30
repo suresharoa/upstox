@@ -143,8 +143,8 @@ app.get('/api/fetchAllChild/:customer_id', function(req,res){
 		});
 });
 
-app.get('/api/fetchAllAmbassadorChildren/:customer_id', function(req,res){
-		Refer.fetchAllChild(req.params.customer_id, function(err,data) {
+app.get('/api/fetchAllAmbassadorChildren/:ambassador_id', function(req,res){
+		Refer.fetchAllAmbassadorChildren(req.params.ambassador_id, function(err,data) {
 			if(err){
 				res.json({"status":"error"});
 				throw err;
@@ -152,6 +152,17 @@ app.get('/api/fetchAllAmbassadorChildren/:customer_id', function(req,res){
 			res.json(data);
 		});
 });
+
+app.get('/api/fetchChildrenAtNthLevel/:ambassador_id/:level', function(req,res){
+		Refer.fetchChildrenAtNthLevel(req.params.ambassador_id,req.params.level,function(err,data) {
+			if(err){
+				res.json({"status":"error"});
+				throw err;
+			}
+			res.json(data);
+		});
+});
+
 
 app.listen(8081);
 console.log('Running the app ...')

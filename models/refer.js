@@ -142,6 +142,7 @@ module.exports.fetchAllChild = function(customerId, callback){
 	// setTimeout(function(){},50000);
 		
 }
+
 function fetchCh(allChild,list,i){
 
 	return new Promise((res, rej) => {
@@ -161,8 +162,36 @@ function fetchCh(allChild,list,i){
 		})
 
 	});
+}
 
+//Usage of level order traversal of a tree :)
 
+function fetchNthCh(allChild,list,level,n){
+	return new Promise((res, rej) => {
+		var first = list.shift();
+		var x = Refer.find({referral_id:first}).populate("customer_id").exec((error, childs) => {
+			for(var j=0;j<childs.length;j++) {	
+				list.push(childs[j].customer_id);
+				if(level==n-1){
+					allChild.push(childs[j]);
+				}
+			}
+		}).then(function (childs) {
+			if(!list.length) {
+				// console.log('resolving...', list);
+				return res(allChild);
+			} else {
+				if(first == -2){
+					list.push(-2);
+					return res(fetchNthCh(allChild,list,++level,n));
+				}
+				else{
+					
+					return res(fetchNthCh(allChild,list,level,n));
+				}
+			}	
+		})
+	});
 }
 
 module.exports.fetchAllAmbassadorChildren = function(customerId, callback){
@@ -174,6 +203,27 @@ module.exports.fetchAllAmbassadorChildren = function(customerId, callback){
 			list.push(parseInt(customerId));
 			fetchCh(allChild,list,0).then(function (result) {
 				console.log('end result: ', result);	
+				callback(null, result);	
+			});
+		}
+		else{
+			Refer.find({customerId:""},callback);
+		}
+
+		});
+}
+
+module.exports.fetchChildrenAtNthLevel = function(customerId,n,callback){
+	var list = [];
+	var allChild = [];
+	Refer.findOne({customer_id:customerId}).populate("payback","isAmbassador").exec(function(error, parent) {
+		// console.log(parent);
+		if (parent.isAmbassador){
+			list.push(parseInt(customerId));
+			//Marking the level 
+			list.push(-2);
+			fetchNthCh(allChild,list,0,n).then(function (result) {
+				// console.log('end result: ', result);	
 				callback(null, result);	
 			});
 		}

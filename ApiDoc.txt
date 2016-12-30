@@ -202,3 +202,45 @@ Response Body : [
 
 API Name : fetchAllAmbassadorChildren
 API Type : GET
+
+fetchChildrenAtNthLevel/ambassador_id/level
+
+Response Body : [
+  {
+    "_id": "5865043313584553b370ea59",
+    "customer_id": 30,
+    "email": "sureaor30@gmail.com",
+    "__v": 0,
+    "lastUpdated": "2016-12-29T12:40:19.833Z",
+    "joiningDate": "2016-12-29T12:40:19.833Z",
+    "isAmbassador": false,
+    "payback": 0,
+    "referral_id": 24
+  },
+  {
+    "_id": "5865044013584553b370ea5b",
+    "customer_id": 28,
+    "email": "sureaor28@gmail.com",
+    "__v": 0,
+    "lastUpdated": "2016-12-29T12:40:32.191Z",
+    "joiningDate": "2016-12-29T12:40:32.191Z",
+    "isAmbassador": false,
+    "payback": 0,
+    "referral_id": 24
+  },
+  {
+    "_id": "5865044813584553b370ea5d",
+    "customer_id": 29,
+    "email": "sureaor29@gmail.com",
+    "__v": 0,
+    "lastUpdated": "2016-12-29T12:40:40.697Z",
+    "joiningDate": "2016-12-29T12:40:40.697Z",
+    "isAmbassador": false,
+    "payback": 0,
+    "referral_id": 24
+  }
+]
+// List of all the children at Nth level if ambassador else []
+
+API Name : fetchChildrenAtNthLevel
+API Type : GET
