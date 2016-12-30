@@ -1,4 +1,4 @@
-addCustomer
+/api/addCustomer
 
 Request Body : { "customer_id":16,"email" : "suresharora16@gmail.com"}
 Response Body : {"status": "ok"}
@@ -6,7 +6,7 @@ API Name : addCustomer
 API Type : POST
 
 
-getCustomerById/custome_id
+/api/getCustomerById/:customer_id
 
 Response Body : {
   "_id": "5863a3c751691c455902ae1b",
@@ -22,7 +22,7 @@ Response Body : {
 API Name : getCustomerById
 API Type : GET
 
-addReferral/parent_customer_id
+/api/addReferral/:parent_customer_id
 
 Request Body : { "customer_id":16,"email" : "suresharora16@gmail.com"}
 Response Body : {"status":"ok","parent_id":"6"}
@@ -30,7 +30,7 @@ API Name : addReferral
 API Type : PUT
 
 
-fetchAllCustomersWithReferralCount
+/api/fetchAllCustomersWithReferralCount
 
 Response Body : [
   {
@@ -49,7 +49,7 @@ Response Body : [
 API Name : fetchAllCustomersWithReferralCount
 API Type : GET
 
-addAmbassador
+/api/addAmbassador
 
 Request Body : { "customer_id":16,"email" : "suresharora16@gmail.com"}
 Response Body : {"status": "ok"}
@@ -57,7 +57,7 @@ API Name : addAmbassador
 API Type : POST
 
 
-convertCustomerToAmbassador/customer_id
+/api/convertCustomerToAmbassador/:customer_id
 
 Response Body : {"status": "ok"}
 API Name : convertCustomerToAmbassador
@@ -118,7 +118,7 @@ API Name : fetchAllChildren
 API Type : GET
 
 
-fetchAllChild/ambassador_id
+/api/fetchAllChildren/:customer_id
 
 Response Body : [
   {
@@ -161,7 +161,7 @@ API Name : fetchAllChild
 API Type : GET
 
 
-fetchAllAmbassadorChildren/ambassador_id
+/api/fetchAllAmbassadorChildren/:ambassador_id
 
 Response Body : [
   {
@@ -203,7 +203,7 @@ Response Body : [
 API Name : fetchAllAmbassadorChildren
 API Type : GET
 
-fetchChildrenAtNthLevel/ambassador_id/level
+/api/fetchChildrenAtNthLevel/:ambassador_id/:level
 
 Response Body : [
   {
